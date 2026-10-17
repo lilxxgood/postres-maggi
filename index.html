@@ -46,7 +46,7 @@ h2{font-size:30px;margin:34px 0 4px}.mut{color:var(--mut);margin:0 0 10px;font-s
 .fl{animation:fl 1.2s}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #F6A623}100%{box-shadow:none}}
 .qr{display:flex;flex-wrap:wrap;gap:22px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin-bottom:28px}
 #qr{background:#FFF4EC;padding:10px;border-radius:14px;line-height:0}
-footer{padding:26px 0 110px;color:var(--mut);font-size:14px}
+footer{padding:26px 0 110px;color:var(--mut);font-size:14px}.ci{width:100%;height:170px;object-fit:cover;border-radius:14px;display:block}.hr{display:block;width:100%;max-width:440px;margin:22px auto 0;border-radius:22px;box-shadow:0 14px 30px rgba(84,31,53,.35)}.steps{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}.steps span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px}.real{margin:24px 0 0}.real img{width:100%;max-height:380px;object-fit:cover;border-radius:22px;display:block}.real p{margin:8px 0 0;color:var(--mut);font-size:14px;text-align:center}.st{padding:4px 12px;border-radius:999px;font-weight:700;font-size:13px}.st.on{background:#2E7D32;color:#fff}.st.off{background:var(--line)}
 .cb{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--pd);color:#fff;display:none;justify-content:space-between;align-items:center;padding:10px 18px calc(10px + env(safe-area-inset-bottom,0px));font-weight:700}
 .cb a{background:#FFF4EC;color:#541F35;border-radius:999px;padding:8px 18px;text-decoration:none;font-family:Fredoka,sans-serif}
 #ts{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top,0px));transform:translate(-50%,-90px);background:#541F35;color:#fff;padding:10px 18px;border-radius:999px;z-index:9;transition:transform .3s;max-width:90%}
@@ -63,10 +63,13 @@ footer{padding:26px 0 110px;color:var(--mut);font-size:14px}
 <h1>Un antojo nunca falla</h1>
 <p>Copas, waffles, crepas y antojitos. Arma tu pedido aquí y mándalo directo a nuestro WhatsApp.</p>
 <a class="btn l" href="#menu">Ver menú</a> <a class="btn o" href="#pedido">Mi pedido</a>
+<img class="hr" src="hero-fresas.jpg" alt="Copas de fresas, uvas y crema con chocolate">
 </div></header>
 <div class="ban" id="envio"></div>
 <main class="w">
-<div class="info"><span id="dir"></span><span id="hor"></span><span id="tel"></span></div>
+<div class="info"><span id="dir"></span><span id="hor"></span><span id="tel"></span><span id="st" class="st"></span></div>
+<div class="steps"><span>1. Elige y agrega</span><span>2. Revisa tu pedido</span><span>3. Envíalo por WhatsApp</span></div>
+<section class="real"><img src="fresas-real.jpg" alt="Copas reales de Postres Maggi en nuestro puesto"><p>Así se ven nuestras copas: foto real de nuestro puesto.</p></section>
 <h2 id="menu">Menú</h2><p class="mut">Elige tamaño o sabor, agrega notas a cada producto y suma a tu pedido.</p>
 <div id="mn"></div>
 
@@ -104,37 +107,37 @@ footer{padding:26px 0 110px;color:var(--mut);font-size:14px}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 /* CONFIGURACIÓN: llena lo que el negocio confirme */
-const CFG={tel:'524381515867',telTxt:'+52 438 151 5867',envioGratis:259,horario:'',tiempo:'',banco:'',titular:'',clabe:'',promo:'',promoHasta:'',topping:0,sheetsUrl:''};
+const CFG={tel:'525534734350',telTxt:'+52 55 3473 4350',envioGratis:259,horario:'Viernes a domingo · 6:00 pm a 10:30–11:00 pm',tiempo:'',banco:'',titular:'',clabe:'',promo:'',promoHasta:'',topping:0,sheetsUrl:''};
 const T=['Chispas','Chocolate','Galletas','Nuez'],FR=[['Chico',45],['Grande',60],['1 litro',100]];
 const P=[
 {id:'fu',n:'Fresas y uvas con crema',cat:'Frutas con crema',opt:FR,top:1},
-{id:'en',n:'Ensalada de frutas con crema',cat:'Frutas con crema',opt:FR,top:1},
-{id:'ge',n:'Gelatina de mosaico en crema batida',cat:'Frutas con crema',opt:FR,top:1},
-{id:'wa',n:'Waffles',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
-{id:'cr',n:'Crepas',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
-{id:'so',n:'Sopa Maruchan',cat:'Antojitos',opt:[['Piquín',25],['Habanero',25],['Birria',25],['Queso',25]]},
-{id:'pe',n:'Pepinos',cat:'Antojitos',opt:[['Orden',20]]},
+{id:'en',im:'ensalada.jpg',n:'Ensalada de frutas con crema',cat:'Frutas con crema',opt:FR,top:1},
+{id:'ge',im:'gelatina.jpg',n:'Gelatina de mosaico en crema batida',cat:'Frutas con crema',opt:FR,top:1},
+{id:'wa',im:'waffles.jpg',n:'Waffles',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
+{id:'cr',im:'crepas.jpg',n:'Crepas',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
+{id:'so',im:'sopa.jpg',n:'Sopa Maruchan',cat:'Antojitos',opt:[['Piquín',25],['Habanero',25],['Birria',25],['Queso',25]]},
+{id:'pe',im:'picosito.jpg',n:'Pepinos',cat:'Antojitos',opt:[['Orden',20]]},
 {id:'ji',n:'Jícama',cat:'Antojitos',opt:[['Orden',20]]},
-{id:'cu',n:'Cueritos y patitas',cat:'Antojitos',opt:[['$5',5],['$10',10],['$20',20]],s:['Cueritos','Patitas']},
-{id:'do',n:'Dorilocos y Tostilocos',cat:'Antojitos',opt:[['Dorilocos',35],['Tostilocos',35]],ask:'¿Qué Sabritas quieres?'}];
+{id:'cu',im:'cueritos.jpg',d:'Se vende en bolsita: tú eliges cuánto',n:'Cueritos y patitas',cat:'Antojitos',opt:[],amt:1,s:['Cueritos','Patitas']},
+{id:'do',n:'Dorilocos o Tostilocos',cat:'Antojitos',opt:[['Dorilocos',35],['Tostilocos',35]],fl:['Adobadas','Original','Chuchuwá','Rancheritos','Flamin Hot']}];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],m=n=>'$'+n;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let cart=[],tm;
 function toast(t){const e=$('#ts');e.textContent=t;e.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>e.classList.remove('on'),2200)}
-function card(p){const i=p.id;return `<article class="card" id="p-${i}"><h3>${p.n}</h3>${p.d?`<p class="mut" style="margin:0">${p.d}</p>`:''}
+function card(p){const i=p.id;return `<article class="card" id="p-${i}">${p.im?`<img class="ci" src="${p.im}" alt="${p.n}" loading="lazy">`:''}<h3>${p.n}</h3>${p.d?`<p class="mut" style="margin:0">${p.d}</p>`:''}
 <div class="chips">${p.opt.map((o,k)=>`<label class="chip"><input type="radio" name="o-${i}" value="${k}" ${k?'':'checked'}><span>${o[0]} · ${m(o[1])}</span></label>`).join('')}</div>
 ${p.s?`<div class="chips">${p.s.map((v,k)=>`<label class="chip"><input type="radio" name="s-${i}" value="${v}" ${k?'':'checked'}><span>${v}</span></label>`).join('')}</div>`:''}
 ${p.top?`<div class="chips">${T.map(t=>`<label class="chip"><input type="checkbox" name="t-${i}" value="${t}"><span>+ ${t}</span></label>`).join('')}</div>`:''}
-${p.ask?`<input class="in" name="a-${i}" placeholder="${p.ask}" aria-label="${p.ask}">`:''}
+${p.fl?`<div class="mut" style="margin:0">Tipo de Sabritas</div><div class="chips">${p.fl.map(f=>`<label class="chip"><input type="radio" name="f-${i}" value="${f}"><span>${f}</span></label>`).join('')}</div>`:''}${p.amt?`<input class="in" name="m-${i}" inputmode="numeric" placeholder="¿Cuánto $ quieres? Ej. 20" aria-label="Cuánto $ quieres">`:''}
 <textarea class="in" name="n-${i}" rows="2" placeholder="Notas: sin chile, más crema, etc." aria-label="Notas"></textarea>
 <div class="row"><div class="qty"><button type="button" data-q="-1" aria-label="Menos">−</button><b>1</b><button type="button" data-q="1" aria-label="Más">+</button></div><button class="btn" type="button" data-add="${i}">Agregar</button></div></article>`}
 function render(){let h='',c='';P.forEach(p=>{if(p.cat!==c){if(c)h+='</div>';c=p.cat;h+=`<div class="cat">${c}</div><div class="grid">`}h+=card(p)});$('#mn').innerHTML=h+'</div>'}
 function add(id){const p=P.find(x=>x.id===id),c=$('#p-'+id),q1=n=>c.querySelector(n);
-const o=p.opt[+q1('[name=o-'+id+']:checked').value],s=p.s?q1('[name=s-'+id+']:checked').value:'';
-const t=[...c.querySelectorAll('[name=t-'+id+']:checked')].map(x=>x.value),a=p.ask?q1('[name=a-'+id+']').value.trim():'';
+const o=p.opt.length?p.opt[+q1('[name=o-'+id+']:checked').value]:['',0],s=p.s?q1('[name=s-'+id+']:checked').value:'';
+const t=[...c.querySelectorAll('[name=t-'+id+']:checked')].map(x=>x.value);const a=p.fl?((q1('[name=f-'+id+']:checked')||{}).value||''):'';if(p.fl&&!a){toast('Elige el tipo de Sabritas');return}
 if(p.ask&&!a){toast('Dinos qué Sabritas quieres');q1('[name=a-'+id+']').focus();return}
-const note=q1('[name=n-'+id+']').value.trim(),q=+q1('.qty b').textContent,price=o[1]+t.length*CFG.topping;
-const det=[o[0],s,a&&('Sabritas: '+a),t.length&&('+ '+t.join(', '))].filter(Boolean).join(' · '),key=[id,det,note].join('|'),ex=cart.find(i=>i.key===key);
+let base=o[1];if(p.amt){base=parseInt(q1('[name=m-'+id+']').value.replace(/\D/g,''),10)||0;if(base<=0){toast('Escribe cuánto $ quieres');q1('[name=m-'+id+']').focus();return}}const note=q1('[name=n-'+id+']').value.trim(),q=+q1('.qty b').textContent,price=base+t.length*CFG.topping;
+const det=[p.amt?'Por $'+base:o[0],s,a&&('Sabritas: '+a),t.length&&('+ '+t.join(', '))].filter(Boolean).join(' · '),key=[id,det,note].join('|'),ex=cart.find(i=>i.key===key);
 ex?ex.q+=q:cart.push({key,id,n:p.n,cat:p.cat,det,note,price,q});
 q1('.qty b').textContent=1;q1('[name=n-'+id+']').value='';draw();toast(p.n+' agregado')}
 const sum=()=>cart.reduce((a,i)=>a+i.price*i.q,0),cnt=()=>cart.reduce((a,i)=>a+i.q,0);
@@ -165,11 +168,11 @@ L.push('*Pago:* '+(tr?'Transferencia (enviaré comprobante)':'Efectivo'+(v('#cm'
 cart.forEach(i=>{L.push(i.q+'× '+i.n+' ('+i.det+') — '+m(i.price*i.q));if(i.note)L.push('   Nota: '+i.note)});
 L.push('','*Subtotal:* '+m(tot),'*Envío:* '+envio,'*Total:* '+m(tot));
 if(v('#gn'))L.push('','*Notas:* '+v('#gn'));
-if(CFG.tiempo)L.push('','Tiempo estimado: '+CFG.tiempo);
+L.push('','*'+(dom?'Hora de entrega':'Hora para recoger')+':* por confirmar (te la confirmamos por WhatsApp)');
 const msg=L.join('\n');
 window.open('https://wa.me/'+CFG.tel+'?text='+encodeURIComponent(msg),'_blank');
 try{localStorage.setItem('mg',JSON.stringify({nm:v('#nm'),tl:v('#tl'),ad:v('#ad')}))}catch(e){}
-if(CFG.sheetsUrl){try{fetch(CFG.sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({id,fecha:d.toISOString(),nombre:v('#nm'),telefono:v('#tl'),entrega:dom?'Domicilio':'Recoger',direccion:v('#ad'),pago:tr?'Transferencia':'Efectivo',productos:cart.map(i=>i.q+'× '+i.n+' ('+i.det+')'+(i.note?' Nota: '+i.note:'')).join(' | '),total:tot,notas:v('#gn')})}).catch(()=>{})}catch(e){}}
+if(CFG.sheetsUrl){try{fetch(CFG.sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({id,fecha:d.toISOString(),entregaHora:'Por confirmar',nombre:v('#nm'),telefono:v('#tl'),entrega:dom?'Domicilio':'Recoger',direccion:v('#ad'),pago:tr?'Transferencia':'Efectivo',productos:cart.map(i=>i.q+'× '+i.n+' ('+i.det+')'+(i.note?' Nota: '+i.note:'')).join(' | '),total:tot,notas:v('#gn')})}).catch(()=>{})}catch(e){}}
 toast('Pedido '+id+' listo en WhatsApp')}
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
 if(b.dataset.add)add(b.dataset.add);
@@ -179,9 +182,9 @@ else if(b.dataset.p){cart[+b.dataset.p].q++;draw()}
 else if(b.dataset.go){const c=$('#p-'+b.dataset.go);c.scrollIntoView({block:'center'});c.classList.add('fl');setTimeout(()=>c.classList.remove('fl'),1300)}
 else if(b.id=='go')send()});
 document.addEventListener('change',e=>{if(e.target.name=='en'){$('#dw').classList.toggle('hid',e.target.value!='Domicilio');draw()}if(e.target.name=='pg')pay()});
-render();pay();
-$('#dir').textContent='Av. Lázaro Cárdenas #29, San Lorenzo, Uruapan';$('#hor').textContent=CFG.horario||'Pregunta el horario por WhatsApp';$('#tel').textContent=CFG.telTxt;
-$('#envio').textContent='Envío gratis dentro de San Lorenzo en pedidos desde '+m(CFG.envioGratis);
+render();pay();const dy=new Date(),hr=dy.getHours()+dy.getMinutes()/60,ab=[5,6,0].includes(dy.getDay())&&hr>=18&&hr<22.5;$('#st').textContent=ab?'Abierto ahora':'Cerrado ahora · abrimos viernes a domingo a las 6 pm';$('#st').className='st '+(ab?'on':'off');
+$('#dir').textContent='Av. Lázaro Cárdenas #29, San Lorenzo, Uruapan';$('#hor').textContent=CFG.horario||'Horario por confirmar';$('#tel').textContent=CFG.telTxt;
+$('#envio').textContent='Envío gratis dentro de San Lorenzo en compras desde '+m(CFG.envioGratis)+'. Menos de ese monto, el costo se confirma por WhatsApp.';
 if(CFG.promo&&(!CFG.promoHasta||new Date()<=new Date(CFG.promoHasta+'T23:59:59'))){const e=$('#pr');e.textContent=CFG.promo;e.classList.remove('hid')}
 const wl='https://wa.me/'+CFG.tel+'?text='+encodeURIComponent('Hola Postres Maggi, quiero hacer un pedido.');$('#wl').href=wl;
 try{const s=JSON.parse(localStorage.getItem('mg')||'null');if(s){$('#nm').value=s.nm||'';$('#tl').value=s.tl||'';$('#ad').value=s.ad||''}}catch(e){}

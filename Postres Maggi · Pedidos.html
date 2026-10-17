@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Postres Maggi · Uruapan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Yellowtail&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#F04F83;--pd:#C93468;--bg:#FFF4EC;--card:#FFFFFF;--ink:#541F35;--mut:#8A5A5F;--line:#F3D9D3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2A1219;--card:#3A1B26;--ink:#FFE9EF;--mut:#E2B3C0;--line:#5A2D3C}}
+:root[data-theme="dark"]{--bg:#2A1219;--card:#3A1B26;--ink:#FFE9EF;--mut:#E2B3C0;--line:#5A2D3C}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 'DM Sans',Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:0 18px}
+h1,h2,h3,.f{font-family:Fredoka,'Trebuchet MS',sans-serif;font-weight:600;margin:0}
+.sc{font-family:Yellowtail,'Brush Script MT',cursive;font-weight:400}
+.hero{background:var(--pd);color:#FFF4EC;padding:44px 0 36px;text-align:center}
+.hero .lg{font-size:13px;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
+.hero .mg{font-size:92px;line-height:.9}
+.hero h1{font-size:clamp(28px,6vw,46px);margin:18px 0 8px}
+.hero p{max-width:520px;margin:0 auto 20px;opacity:.95}
+.btn{display:inline-block;border:0;border-radius:999px;background:var(--pd);color:#fff;font:600 16px Fredoka,sans-serif;padding:12px 24px;cursor:pointer;text-decoration:none}
+.btn.l{background:#FFF4EC;color:#541F35}.btn.o{background:transparent;color:inherit;border:2px solid currentColor}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #F6A623;outline-offset:2px}
+.ban{background:#541F35;color:#FFF4EC;text-align:center;padding:10px 18px;font-weight:500}
+.info{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:center;padding:16px 0;color:var(--mut);font-size:14px}
+h2{font-size:30px;margin:34px 0 4px}.mut{color:var(--mut);margin:0 0 10px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:20px}.cat{margin-top:14px;font:600 14px Fredoka,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pd)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip input{position:absolute;opacity:0}
+.chip span{display:inline-block;padding:7px 13px;border:2px solid var(--line);border-radius:999px;font-size:14px;cursor:pointer}
+.chip input:checked+span{background:var(--pd);border-color:var(--pd);color:#fff}
+.chip input:focus-visible+span{outline:3px solid #F6A623}
+.in{width:100%;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;padding:10px 12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto}
+.qty{display:flex;align-items:center;gap:10px}.qty button{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;cursor:pointer}
+.ord{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin:30px 0}
+.it{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.it small{display:block;color:var(--mut)}
+.bar{height:10px;border-radius:9px;background:var(--line);overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--pd);width:0;transition:width .3s}
+.tot{display:flex;justify-content:space-between;font:600 22px Fredoka,sans-serif;margin:12px 0}
+.fm{display:grid;gap:12px;margin-top:14px}.fm label.t{font-weight:700;font-size:14px;display:block;margin-bottom:4px}
+.rc{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.rc button{border:2px dashed var(--pd);background:transparent;color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;cursor:pointer}
+.fl{animation:fl 1.2s}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #F6A623}100%{box-shadow:none}}
+.qr{display:flex;flex-wrap:wrap;gap:22px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;margin-bottom:28px}
+#qr{background:#FFF4EC;padding:10px;border-radius:14px;line-height:0}
+footer{padding:26px 0 110px;color:var(--mut);font-size:14px}
+.cb{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--pd);color:#fff;display:none;justify-content:space-between;align-items:center;padding:10px 18px calc(10px + env(safe-area-inset-bottom,0px));font-weight:700}
+.cb a{background:#FFF4EC;color:#541F35;border-radius:999px;padding:8px 18px;text-decoration:none;font-family:Fredoka,sans-serif}
+#ts{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top,0px));transform:translate(-50%,-90px);background:#541F35;color:#fff;padding:10px 18px;border-radius:999px;z-index:9;transition:transform .3s;max-width:90%}
+#ts.on{transform:translate(-50%,0)}
+.hid{display:none}
+</style>
+</head>
+<body>
+<div id="ts" role="status"></div>
+<div id="pr" class="ban hid"></div>
+<header class="hero"><div class="w">
+<svg width="54" height="54" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 58C9 41 5 22 18 14c8-5 14 0 14 4 0-4 6-9 14-4 13 8 9 27-14 44z" fill="#FFF4EC"/><path d="M32 19C27 9 19 8 14 12c7 2 13 3 18 7zm0 0c5-10 13-11 18-7-7 2-13 3-18 7z" fill="#541F35"/><g fill="#C93468"><ellipse cx="24" cy="28" rx="1.6" ry="2.4"/><ellipse cx="40" cy="28" rx="1.6" ry="2.4"/><ellipse cx="32" cy="34" rx="1.6" ry="2.4"/><ellipse cx="25" cy="41" rx="1.6" ry="2.4"/><ellipse cx="39" cy="41" rx="1.6" ry="2.4"/></g></svg>
+<div class="f lg">Postres</div><div class="sc mg">Maggi</div>
+<h1>Un antojo nunca falla</h1>
+<p>Copas, waffles, crepas y antojitos. Arma tu pedido aquí y mándalo directo a nuestro WhatsApp.</p>
+<a class="btn l" href="#menu">Ver menú</a> <a class="btn o" href="#pedido">Mi pedido</a>
+</div></header>
+<div class="ban" id="envio"></div>
+<main class="w">
+<div class="info"><span id="dir"></span><span id="hor"></span><span id="tel"></span></div>
+<h2 id="menu">Menú</h2><p class="mut">Elige tamaño o sabor, agrega notas a cada producto y suma a tu pedido.</p>
+<div id="mn"></div>
+
+<section class="ord" id="pedido">
+<h2 style="margin-top:0">Mi pedido</h2>
+<div id="ci"><p class="mut">Aún no has agregado nada.</p></div>
+<div id="tt" class="hid">
+<div class="tot"><span>Total</span><span id="tv"></span></div>
+<div class="mut" id="sh"></div><div class="bar"><i id="pg"></i></div>
+<div class="mut" id="pt"></div>
+<div id="rcw" class="hid"><b>¿Se te antoja algo más?</b><div class="rc" id="rc"></div></div>
+<form class="fm" id="fm" onsubmit="return false">
+<div><label class="t" for="nm">Tu nombre</label><input class="in" id="nm" autocomplete="name"></div>
+<div><label class="t" for="tl">Tu teléfono</label><input class="in" id="tl" type="tel" inputmode="tel" autocomplete="tel"></div>
+<div><span class="t" style="font-weight:700;font-size:14px">¿Cómo lo quieres?</span><div class="chips">
+<label class="chip"><input type="radio" name="en" value="Domicilio" checked><span>A domicilio</span></label>
+<label class="chip"><input type="radio" name="en" value="Recoger en local"><span>Paso a recoger</span></label></div></div>
+<div id="dw"><label class="t" for="ad">Dirección y referencias</label><textarea class="in" id="ad" rows="2" placeholder="Calle, número, colonia y cómo identificar la casa" autocomplete="street-address"></textarea><div class="mut">Si estás fuera de San Lorenzo, lo confirmamos por WhatsApp.</div></div>
+<div><span class="t" style="font-weight:700;font-size:14px">Forma de pago</span><div class="chips">
+<label class="chip"><input type="radio" name="pg" value="Efectivo" checked><span>Efectivo</span></label>
+<label class="chip"><input type="radio" name="pg" value="Transferencia"><span>Transferencia</span></label></div></div>
+<div id="pe"><label class="t" for="cm">¿Con cuánto pagas? (para llevar cambio)</label><input class="in" id="cm" inputmode="numeric"></div>
+<div id="px" class="hid mut"></div>
+<div><label class="t" for="gn">Notas generales (opcional)</label><textarea class="in" id="gn" rows="2"></textarea></div>
+<label><input type="checkbox" id="cs"> Acepto que Postres Maggi use mis datos para preparar mi pedido y llevar un registro de clientes. <a href="#priv">Aviso de privacidad</a></label>
+<button class="btn" id="go" type="button">Enviar pedido por WhatsApp</button>
+<div class="mut">Se abrirá WhatsApp con tu pedido listo. Toca enviar para que nos llegue.</div>
+</form></div></section>
+
+<section class="qr"><div id="qr"></div><div><h2 style="margin:0">Pídenos por WhatsApp</h2><p class="mut">Escanea el código o toca el botón.</p><a class="btn" id="wl" target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a> <a class="btn o" id="mp" target="_blank" rel="noopener noreferrer" href="https://maps.app.goo.gl/vKYkYaJ4D7QtfZ6p8">Cómo llegar</a></div></section>
+</main>
+<footer><div class="w"><b class="f">Postres Maggi</b> · Av. Lázaro Cárdenas #29, San Lorenzo, Uruapan, Michoacán<details id="priv"><summary>Aviso de privacidad</summary><p>Usamos tu nombre, teléfono y dirección solo para preparar y entregar tu pedido y llevar un registro de clientes de Postres Maggi. Puedes pedir que corrijamos o eliminemos tus datos escribiendo a nuestro WhatsApp.</p></details></div></footer>
+<div class="cb" id="cb"><span id="cn"></span><a href="#pedido">Ver pedido</a></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+/* CONFIGURACIÓN: llena lo que el negocio confirme */
+const CFG={tel:'524381515867',telTxt:'+52 438 151 5867',envioGratis:259,horario:'',tiempo:'',banco:'',titular:'',clabe:'',promo:'',promoHasta:'',topping:0,sheetsUrl:''};
+const T=['Chispas','Chocolate','Galletas','Nuez'],FR=[['Chico',45],['Grande',60],['1 litro',100]];
+const P=[
+{id:'fu',n:'Fresas y uvas con crema',cat:'Frutas con crema',opt:FR,top:1},
+{id:'en',n:'Ensalada de frutas con crema',cat:'Frutas con crema',opt:FR,top:1},
+{id:'ge',n:'Gelatina de mosaico en crema batida',cat:'Frutas con crema',opt:FR,top:1},
+{id:'wa',n:'Waffles',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
+{id:'cr',n:'Crepas',d:'1 orden · 3 piezas',cat:'Waffles y crepas',opt:[['1 orden',60]]},
+{id:'so',n:'Sopa Maruchan',cat:'Antojitos',opt:[['Piquín',25],['Habanero',25],['Birria',25],['Queso',25]]},
+{id:'pe',n:'Pepinos',cat:'Antojitos',opt:[['Orden',20]]},
+{id:'ji',n:'Jícama',cat:'Antojitos',opt:[['Orden',20]]},
+{id:'cu',n:'Cueritos y patitas',cat:'Antojitos',opt:[['$5',5],['$10',10],['$20',20]],s:['Cueritos','Patitas']},
+{id:'do',n:'Dorilocos y Tostilocos',cat:'Antojitos',opt:[['Dorilocos',35],['Tostilocos',35]],ask:'¿Qué Sabritas quieres?'}];
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],m=n=>'$'+n;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let cart=[],tm;
+function toast(t){const e=$('#ts');e.textContent=t;e.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>e.classList.remove('on'),2200)}
+function card(p){const i=p.id;return `<article class="card" id="p-${i}"><h3>${p.n}</h3>${p.d?`<p class="mut" style="margin:0">${p.d}</p>`:''}
+<div class="chips">${p.opt.map((o,k)=>`<label class="chip"><input type="radio" name="o-${i}" value="${k}" ${k?'':'checked'}><span>${o[0]} · ${m(o[1])}</span></label>`).join('')}</div>
+${p.s?`<div class="chips">${p.s.map((v,k)=>`<label class="chip"><input type="radio" name="s-${i}" value="${v}" ${k?'':'checked'}><span>${v}</span></label>`).join('')}</div>`:''}
+${p.top?`<div class="chips">${T.map(t=>`<label class="chip"><input type="checkbox" name="t-${i}" value="${t}"><span>+ ${t}</span></label>`).join('')}</div>`:''}
+${p.ask?`<input class="in" name="a-${i}" placeholder="${p.ask}" aria-label="${p.ask}">`:''}
+<textarea class="in" name="n-${i}" rows="2" placeholder="Notas: sin chile, más crema, etc." aria-label="Notas"></textarea>
+<div class="row"><div class="qty"><button type="button" data-q="-1" aria-label="Menos">−</button><b>1</b><button type="button" data-q="1" aria-label="Más">+</button></div><button class="btn" type="button" data-add="${i}">Agregar</button></div></article>`}
+function render(){let h='',c='';P.forEach(p=>{if(p.cat!==c){if(c)h+='</div>';c=p.cat;h+=`<div class="cat">${c}</div><div class="grid">`}h+=card(p)});$('#mn').innerHTML=h+'</div>'}
+function add(id){const p=P.find(x=>x.id===id),c=$('#p-'+id),q1=n=>c.querySelector(n);
+const o=p.opt[+q1('[name=o-'+id+']:checked').value],s=p.s?q1('[name=s-'+id+']:checked').value:'';
+const t=[...c.querySelectorAll('[name=t-'+id+']:checked')].map(x=>x.value),a=p.ask?q1('[name=a-'+id+']').value.trim():'';
+if(p.ask&&!a){toast('Dinos qué Sabritas quieres');q1('[name=a-'+id+']').focus();return}
+const note=q1('[name=n-'+id+']').value.trim(),q=+q1('.qty b').textContent,price=o[1]+t.length*CFG.topping;
+const det=[o[0],s,a&&('Sabritas: '+a),t.length&&('+ '+t.join(', '))].filter(Boolean).join(' · '),key=[id,det,note].join('|'),ex=cart.find(i=>i.key===key);
+ex?ex.q+=q:cart.push({key,id,n:p.n,cat:p.cat,det,note,price,q});
+q1('.qty b').textContent=1;q1('[name=n-'+id+']').value='';draw();toast(p.n+' agregado')}
+const sum=()=>cart.reduce((a,i)=>a+i.price*i.q,0),cnt=()=>cart.reduce((a,i)=>a+i.q,0);
+function draw(){const tot=sum(),n=cnt();
+$('#cb').style.display=n?'flex':'none';$('#cn').textContent=n+(n==1?' producto · ':' productos · ')+m(tot);
+$('#tt').classList.toggle('hid',!n);
+$('#ci').innerHTML=n?cart.map((i,k)=>`<div class="it"><div><b>${i.q}× ${esc(i.n)}</b><small>${esc(i.det)}</small>${i.note?`<small>Nota: ${esc(i.note)}</small>`:''}<div class="qty" style="margin-top:6px"><button type="button" data-m="${k}" aria-label="Quitar uno">−</button><b>${i.q}</b><button type="button" data-p="${k}" aria-label="Agregar uno">+</button></div></div><b>${m(i.price*i.q)}</b></div>`).join(''):'<p class="mut">Aún no has agregado nada.</p>';
+if(!n)return;$('#tv').textContent=m(tot);
+const f=CFG.envioGratis,dom=document.querySelector('[name=en]:checked').value=='Domicilio';
+$('#pg').style.width=Math.min(100,tot/f*100)+'%';
+$('#sh').textContent=dom?(tot>=f?'Envío gratis en San Lorenzo':'Envío: se confirma por WhatsApp'):'Pasas a recoger a la tienda';
+$('#pt').textContent=tot>=f?'Ya tienes envío gratis dentro de San Lorenzo.':'Te faltan '+m(f-tot)+' para envío gratis dentro de San Lorenzo.';
+const r=[];if(!cart.some(i=>i.cat=='Frutas con crema'))r.push(['fu','Una copa con crema']);if(!cart.some(i=>i.cat=='Waffles y crepas'))r.push(['wa','Waffles o crepas']);if(!cart.some(i=>i.id=='do'))r.push(['do','Dorilocos o Tostilocos']);if(!cart.some(i=>i.id=='so'))r.push(['so','Una sopa Maruchan']);
+$('#rcw').classList.toggle('hid',!r.length);$('#rc').innerHTML=r.slice(0,3).map(x=>`<button type="button" data-go="${x[0]}">+ ${x[1]}</button>`).join('')}
+function pay(){const tr=document.querySelector('[name=pg]:checked').value=='Transferencia';$('#pe').classList.toggle('hid',tr);const x=$('#px');x.classList.toggle('hid',!tr);
+x.textContent=tr?(CFG.clabe?`Transfiere a ${CFG.titular} · ${CFG.banco} · CLABE ${CFG.clabe} y envía tu comprobante por WhatsApp.`:'Te enviamos los datos de transferencia por WhatsApp. Manda tu comprobante en el mismo chat.'):''}
+function send(){const v=id=>$(id).value.trim(),dom=document.querySelector('[name=en]:checked').value=='Domicilio',tr=document.querySelector('[name=pg]:checked').value=='Transferencia';
+if(!cart.length)return toast('Agrega algo a tu pedido');
+if(!v('#nm')){toast('Escribe tu nombre');return $('#nm').focus()}
+if(v('#tl').replace(/\D/g,'').length<10){toast('Revisa tu teléfono (10 dígitos)');return $('#tl').focus()}
+if(dom&&!v('#ad')){toast('Escribe tu dirección');return $('#ad').focus()}
+if(!$('#cs').checked)return toast('Acepta el aviso de privacidad');
+const d=new Date(),id='MG-'+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,5).toUpperCase(),tot=sum(),f=CFG.envioGratis;
+const envio=dom?(tot>=f?'Gratis (San Lorenzo)':'Por confirmar'):'No aplica';
+let L=['*Pedido '+id+'*',d.toLocaleString('es-MX',{dateStyle:'full',timeStyle:'short'}),'','*Cliente:* '+v('#nm'),'*Teléfono:* '+v('#tl'),'*Entrega:* '+(dom?'A domicilio':'Recoger en local')];
+if(dom)L.push('*Dirección:* '+v('#ad'));
+L.push('*Pago:* '+(tr?'Transferencia (enviaré comprobante)':'Efectivo'+(v('#cm')?', paga con $'+v('#cm').replace(/\D/g,''):'')),'','*Productos:*');
+cart.forEach(i=>{L.push(i.q+'× '+i.n+' ('+i.det+') — '+m(i.price*i.q));if(i.note)L.push('   Nota: '+i.note)});
+L.push('','*Subtotal:* '+m(tot),'*Envío:* '+envio,'*Total:* '+m(tot));
+if(v('#gn'))L.push('','*Notas:* '+v('#gn'));
+if(CFG.tiempo)L.push('','Tiempo estimado: '+CFG.tiempo);
+const msg=L.join('\n');
+window.open('https://wa.me/'+CFG.tel+'?text='+encodeURIComponent(msg),'_blank');
+try{localStorage.setItem('mg',JSON.stringify({nm:v('#nm'),tl:v('#tl'),ad:v('#ad')}))}catch(e){}
+if(CFG.sheetsUrl){try{fetch(CFG.sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify({id,fecha:d.toISOString(),nombre:v('#nm'),telefono:v('#tl'),entrega:dom?'Domicilio':'Recoger',direccion:v('#ad'),pago:tr?'Transferencia':'Efectivo',productos:cart.map(i=>i.q+'× '+i.n+' ('+i.det+')'+(i.note?' Nota: '+i.note:'')).join(' | '),total:tot,notas:v('#gn')})}).catch(()=>{})}catch(e){}}
+toast('Pedido '+id+' listo en WhatsApp')}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+if(b.dataset.add)add(b.dataset.add);
+else if(b.dataset.q){const s=b.parentNode.querySelector('b');s.textContent=Math.max(1,+s.textContent+ +b.dataset.q)}
+else if(b.dataset.m){const i=cart[+b.dataset.m];if(--i.q<=0)cart.splice(+b.dataset.m,1);draw()}
+else if(b.dataset.p){cart[+b.dataset.p].q++;draw()}
+else if(b.dataset.go){const c=$('#p-'+b.dataset.go);c.scrollIntoView({block:'center'});c.classList.add('fl');setTimeout(()=>c.classList.remove('fl'),1300)}
+else if(b.id=='go')send()});
+document.addEventListener('change',e=>{if(e.target.name=='en'){$('#dw').classList.toggle('hid',e.target.value!='Domicilio');draw()}if(e.target.name=='pg')pay()});
+render();pay();
+$('#dir').textContent='Av. Lázaro Cárdenas #29, San Lorenzo, Uruapan';$('#hor').textContent=CFG.horario||'Pregunta el horario por WhatsApp';$('#tel').textContent=CFG.telTxt;
+$('#envio').textContent='Envío gratis dentro de San Lorenzo en pedidos desde '+m(CFG.envioGratis);
+if(CFG.promo&&(!CFG.promoHasta||new Date()<=new Date(CFG.promoHasta+'T23:59:59'))){const e=$('#pr');e.textContent=CFG.promo;e.classList.remove('hid')}
+const wl='https://wa.me/'+CFG.tel+'?text='+encodeURIComponent('Hola Postres Maggi, quiero hacer un pedido.');$('#wl').href=wl;
+try{const s=JSON.parse(localStorage.getItem('mg')||'null');if(s){$('#nm').value=s.nm||'';$('#tl').value=s.tl||'';$('#ad').value=s.ad||''}}catch(e){}
+try{new QRCode($('#qr'),{text:wl,width:170,height:170,colorDark:'#541F35',colorLight:'#FFF4EC'})}catch(e){$('#qr').textContent=''}
+</script>
+</body>
+</html>
